@@ -1,59 +1,76 @@
 <p align="center">
-  <img
-    src="https://capsule-render.vercel.app/api?type=rounded&color=0:0D1117,50:183D35,100:0D1117&height=220&text=Bienvenue.&fontSize=60&fontColor=E6F5EF&fontAlignY=43&desc=K2MDev%20%C2%B7%20Syst%C3%A8mes%20%26%20R%C3%A9seaux&descSize=20&descAlignY=69&animation=fadeIn"
-    width="100%"
-    alt="Bienvenue sur le profil de K2MDev"
-  />
+  <picture>
+    <source media="(prefers-reduced-motion: reduce)" srcset="./assets/welcome-macos-static.png" />
+    <img src="./assets/welcome-macos.gif" width="100%" alt="Bienvenue sur le profil de K2MDev — Mérouane, systèmes et réseaux. Comprendre, tester, construire." />
+  </picture>
 </p>
 
 <p align="center">
-  <img
-    src="https://avatars.githubusercontent.com/u/247413113?v=4"
-    width="80"
-    height="80"
-    alt="Logo MK"
-  />
+  <a href="https://github.com/K2MDev?tab=repositories"><img src="./assets/repositories.svg" width="176" height="42" alt="Explorer mes dépôts" /></a>
+  &nbsp;
+  <a href="mailto:merouane.karki@gmail.com"><img src="./assets/contact.svg" width="176" height="42" alt="Discuter informatique par email" /></a>
 </p>
 
-<p align="center">
-  <img
-    src="https://readme-typing-svg.demolab.com/?font=Fira%20Code&size=19&duration=3500&pause=1800&color=59B997&center=true&vCenter=true&width=500&height=45&lines=Comprendre.%20Tester.%20Construire.;Un%20labo%2C%20des%20id%C3%A9es%2C%20de%20la%20curiosit%C3%A9."
-    alt="Comprendre. Tester. Construire. Un labo, des idées, de la curiosité."
-  />
-</p>
+<br />
 
 <p align="center">
   Moi, c’est <strong>Mérouane</strong>.<br />
-  Je m’intéresse aux systèmes, aux réseaux et à la cybersécurité.<br />
-  J’aime expérimenter, résoudre des problèmes et apprendre en pratiquant.
+  J’aime comprendre les systèmes, explorer les réseaux<br />
+  et mettre les mains dans un labo pour passer de la théorie à la pratique.
 </p>
 
 <p align="center">
-  <code>Systèmes</code>
-  &nbsp; <code>Réseaux</code>
-  &nbsp; <code>Homelab</code>
+  <code>Systèmes</code> &nbsp; <code>Réseaux</code> &nbsp; <code>Cybersécurité</code>
 </p>
 
-<p align="center">
-  <a href="https://github.com/K2MDev?tab=repositories"><strong>Mes dépôts ↗</strong></a>
-  &nbsp; · &nbsp;
-  <a href="mailto:merouane.karki@gmail.com"><strong>Discuter IT ↗</strong></a>
-</p>
+<br />
+
+### Un peu plus sur mon univers
+
+Ouvre une rubrique pour découvrir mes outils, mes expériences en laboratoire et ce que j’approfondis.
+
+<details>
+<summary><strong>01 · Mes outils</strong> — systèmes, réseaux et support</summary>
+
+<br />
+
+| Domaine | Outils et technologies que j’ai pratiqués |
+| :--- | :--- |
+| Systèmes et services | Windows Server · Active Directory · Ubuntu Server · DNS · DHCP |
+| Réseaux | Cisco Packet Tracer · TCP/IP · VLAN · pfSense |
+| Support et gestion de parc | GLPI · AnyDesk · TeamViewer |
+
+Côté programmation : **bases en Python**, **notions de SQL** et **PowerShell en apprentissage**.
+
+</details>
 
 <br />
 
 <details>
-<summary><strong>Un peu plus sur mon univers</strong></summary>
+<summary><strong>02 · Dans mon lab</strong> — comprendre en expérimentant</summary>
 
 <br />
 
-- **Systèmes** — Windows Server, Active Directory et Ubuntu Server.
-- **Réseaux** — maquettes Cisco Packet Tracer, adressage et VLAN.
-- **Services** — GLPI et connexion à un annuaire avec LDAP.
-- **Scripts** — bases en Python, notions de SQL et PowerShell en apprentissage.
+- **Windows Server** — monter un domaine, gérer des utilisateurs et intégrer des postes.
+- **GLPI sous Ubuntu Server** — installer un outil de gestion de parc et le relier à Active Directory avec LDAP.
+- **Cisco Packet Tracer** — construire des maquettes, configurer l’adressage et tester les communications.
 
-Mes laboratoires me servent à tester des configurations et à mieux
-comprendre comment les différents services fonctionnent ensemble.
+Des environnements d’apprentissage et de test pour comprendre comment les services fonctionnent ensemble.
+
+</details>
+
+<br />
+
+<details>
+<summary><strong>03 · Ce que j’approfondis</strong> — les prochaines pistes</summary>
+
+<br />
+
+- **Cybersécurité** — mieux comprendre la protection des systèmes et des réseaux.
+- **Automatisation** — progresser en scripting pour simplifier les tâches répétitives.
+- **Infrastructures** — approfondir les liens entre les machines virtuelles, les services et les sauvegardes.
+
+J’avance en expérimentant, en vérifiant les résultats et en reprenant ce qui reste à comprendre.
 
 </details>
 
@@ -62,5 +79,6 @@ comprendre comment les différents services fonctionnent ensemble.
 ---
 
 <p align="center">
-  <sub>K2MDev · Toujours quelque chose à apprendre.</sub>
+  Une question ou un sujet IT à partager ? <a href="mailto:merouane.karki@gmail.com">Échangeons.</a><br />
+  <sub>K2MDev · Apprendre en pratiquant.</sub>
 </p>
