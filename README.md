@@ -1,61 +1,72 @@
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://capsule-render.vercel.app/api?type=rounded&amp;height=210&amp;text=K2MDev&amp;fontFamily=Verdana&amp;fontSize=64&amp;fontAlignY=45&amp;desc=SYSTEMS%20%20%C2%B7%20%20NETWORKS%20%20%C2%B7%20%20HOMELAB&amp;descSize=16&amp;descAlignY=69&amp;animation=fadeIn&amp;color=0%3A131e2b%2C100%3A233b50&amp;fontColor=e7f3ff" />
-    <img src="https://capsule-render.vercel.app/api?type=rounded&amp;height=210&amp;text=K2MDev&amp;fontFamily=Verdana&amp;fontSize=64&amp;fontAlignY=45&amp;desc=SYSTEMS%20%20%C2%B7%20%20NETWORKS%20%20%C2%B7%20%20HOMELAB&amp;descSize=16&amp;descAlignY=69&amp;animation=fadeIn&amp;color=0%3Aedf6ff%2C100%3Ac6def5&amp;fontColor=17324d" width="100%" alt="K2MDev — Systems · Networks · Homelab" />
-  </picture>
-</p>
+# Mérouane Karki — Portfolio
 
-<p align="center">
-  <img src="https://avatars.githubusercontent.com/u/247413113?v=4" width="80" height="80" alt="Logo MK de K2MDev" />
-</p>
+A single-page portfolio built with React and TypeScript. It combines a glass-style profile hub with filterable projects, skill dialogs, a career timeline, and reading progress navigation.
 
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com/?font=Fira%20Code&amp;size=20&amp;duration=3200&amp;pause=2000&amp;center=true&amp;vCenter=true&amp;width=560&amp;height=42&amp;repeat=true&amp;lines=Explorer%20les%20syst%C3%A8mes.%3BComprendre%20les%20r%C3%A9seaux.%3BConstruire%2C%20tester%2C%20recommencer.&amp;color=93C5FD" />
-    <img src="https://readme-typing-svg.demolab.com/?font=Fira%20Code&amp;size=20&amp;duration=3200&amp;pause=2000&amp;center=true&amp;vCenter=true&amp;width=560&amp;height=42&amp;repeat=true&amp;lines=Explorer%20les%20syst%C3%A8mes.%3BComprendre%20les%20r%C3%A9seaux.%3BConstruire%2C%20tester%2C%20recommencer.&amp;color=2563EB" width="560" alt="Explorer les systèmes. Comprendre les réseaux. Construire, tester, recommencer." />
-  </picture>
-</p>
+The interface uses an ice-blue palette, translucent panels, and a landscape background. Content is defined in the application source, with local assets for the portrait and downloadable CV.
 
-<p align="center">
-  Moi, c’est <strong>Mérouane</strong>.<br />
-  J’aime comprendre ce qui se passe derrière l’écran,<br />
-  monter des labos et trouver comment faire fonctionner les choses ensemble.
-</p>
+**First release: 0.1.0**
 
-<p align="center">
-  <a href="https://github.com/K2MDev?tab=repositories"><strong>Explorer mes dépôts ↗</strong></a>
-  &nbsp; · &nbsp;
-  <a href="mailto:merouane.karki@gmail.com">Discuter IT ↗</a>
-</p>
+## Implementation highlights
 
-<br />
+- **Frame-scheduled scroll updates.** The [profile hub](./app/glass-hub.tsx) uses a passive scroll listener and [`requestAnimationFrame`](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestAnimationFrame) to group reading-progress and active-section updates. A [`ResizeObserver`](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver) recalculates progress when the document’s size changes. Listeners, observers, and pending frames are cleaned up on unmount.
 
-### Mes terrains d’exploration
+- **One-time section reveals.** The [content component](./app/portfolio-content.tsx) uses [`IntersectionObserver`](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) to reveal sections at an 8% visibility threshold, then stops observing them. Sections remain visible until JavaScript enables the reveal styles.
 
-| Systèmes | Réseaux | Scripts |
-| :--- | :--- | :--- |
-| Monter un environnement et comprendre ses services. | Simuler une infrastructure et suivre les échanges. | Apprendre à automatiser les tâches du quotidien. |
-| `Windows Server` `Active Directory` | `Cisco Packet Tracer` `TCP/IP` | `PowerShell` `Python` |
+- **Glass effects in CSS.** The [stylesheet](./app/globals.css) combines translucent gradients, inset shadows, and [`backdrop-filter`](https://developer.mozilla.org/en-US/docs/Web/CSS/backdrop-filter) to create depth over the background image.
 
-<br />
+- **Reduced-motion support.** JavaScript skips scroll reveals when reduced motion is requested. CSS also disables animations, transitions, hover movement, and smooth scrolling through [`prefers-reduced-motion`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion).
 
-<details>
-<summary><strong>Dans mon lab</strong> — ouvrir le carnet</summary>
+- **Native scrolling behavior.** Anchor navigation uses CSS [`scroll-behavior`](https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-behavior). Dialog content uses [`overscroll-behavior`](https://developer.mozilla.org/en-US/docs/Web/CSS/overscroll-behavior) to contain scrolling within the panel.
 
-<br />
+- **Shared data for cards and dialogs.** The [project and skill definitions](./app/portfolio-content.tsx) drive both summaries and detail views. React state controls filters and selected items. Filter buttons expose their pressed state, and a live region announces the result count.
 
-Des environnements de test pour expérimenter à mon rythme :
+## Libraries and tooling
 
-- **Windows Server** — domaine, utilisateurs et services réseau.
-- **Packet Tracer** — adressage, segmentation et connectivité.
-- **Automatisation** — petits scripts, essais et pistes à approfondir.
+The [package manifest](./package.json) records the dependencies and their pinned versions.
 
-Ce qui m’intéresse : comprendre pourquoi ça fonctionne, et savoir par où commencer quand ça ne fonctionne plus.
+| Technology | Role in this project |
+| :--- | :--- |
+| [React](https://react.dev/) and [TypeScript](https://www.typescriptlang.org/) | Components, local interaction state, and typed project selections. |
+| [Vinext](https://github.com/cloudflare/vinext) and [Vite](https://vite.dev/) | Next.js-style application conventions on a Vite build pipeline. The project pins Vinext `1.0.0-beta.5`. |
+| [Cloudflare Vite plugin](https://developers.cloudflare.com/workers/vite-plugin/) and [Wrangler](https://developers.cloudflare.com/workers/wrangler/) | Workers runtime integration, configured in [vite.config.ts](./vite.config.ts). |
+| [Base UI](https://base-ui.com/react/components/dialog) and [shadcn/ui](https://ui.shadcn.com/docs) | Locally maintained wrappers for dialogs, tabs, progress indicators, and other UI primitives. |
+| [Tailwind CSS 4](https://tailwindcss.com/docs/theme) and [tw-animate-css](https://github.com/Wombosvideo/tw-animate-css) | Theme tokens, utility classes, and component transition utilities alongside custom CSS. |
+| [Class Variance Authority](https://cva.style/docs) | Typed style variants for shared components, including the [tabs](./components/ui/tabs.tsx). |
+| [clsx](https://github.com/lukeed/clsx) and [tailwind-merge](https://github.com/dcastil/tailwind-merge) | Conditional class composition and Tailwind conflict resolution through the [shared utility](./lib/utils.ts). |
+| [Lucide React](https://lucide.dev/guide/react) | SVG icons for navigation, cards, and controls. |
+| [Oxlint](https://oxc.rs/docs/guide/usage/linter.html) and [Oxfmt](https://oxc.rs/docs/guide/usage/formatter.html) | Linting and formatting. |
 
-</details>
+The [UI directory](./components/ui/) contains a broader component collection than the current page uses. The main interface imports the dialog, tabs, and progress wrappers.
 
-<br />
+## Typography
 
----
+The [stylesheet](./app/globals.css) uses a system font stack: `-apple-system`, `BlinkMacSystemFont`, `Segoe UI`, and `sans-serif`.
 
-<p align="center"><sub>K2MDev · Systèmes, réseaux et curiosité.</sub></p>
+This selects the platform’s available interface font, including [Apple’s system fonts](https://developer.apple.com/fonts/) and [Segoe UI](https://learn.microsoft.com/en-us/typography/font-list/segoe-ui). No external font files are downloaded.
+
+## Project structure
+
+Source and configuration layout:
+
+```text
+/
+  app/
+  components/
+    ui/
+  hooks/
+  lib/
+  public/
+  components.json
+  next.config.ts
+  package.json
+  pnpm-lock.yaml
+  pnpm-workspace.yaml
+  tsconfig.json
+  vite.config.ts
+```
+
+- [app/](./app/) — Page composition, document metadata, portfolio content, interaction logic, and global styling.
+- [components/ui/](./components/ui/) — Shared UI primitives and their local styling wrappers.
+- [hooks/](./hooks/) — Reusable hooks, including viewport detection for shared components.
+- [lib/](./lib/) — Shared utilities for composing component classes.
+- [public/](./public/) — Landscape and portrait images, the SVG favicon, and the downloadable PDF CV. Assets sit directly in this directory.
